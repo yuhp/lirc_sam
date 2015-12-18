@@ -102,7 +102,7 @@ static long send_pulse(unsigned long length);
 static void send_space(long length);
 static void lirc_sam_exit(void);
 
-int valid_gpio_pins[] = { 22 ,23 ,43 ,44 ,45 ,46 }; 
+int valid_gpio_pins[] = {21 ,22 ,23 ,43 ,44 ,45 ,46 ,66 ,67 ,68 ,95}; 
 
 
 static struct platform_device *lirc_sam_dev;
@@ -717,12 +717,12 @@ MODULE_LICENSE("GPL");
 
 module_param(gpio_out_pin, int, S_IRUGO);
 MODULE_PARM_DESC(gpio_out_pin, "GPIO output/transmitter pin number of the AT91SAMG25"
-		 " processor. Valid pin numbers are: 43 ,44, 45, 46"
+		 " processor. Valid pin numbers are: 21 ,22 ,23 ,43 ,44 ,45 ,46 ,66 ,67 ,68 ,95"
 		 " default 44");
 
 module_param(gpio_in_pin, int, S_IRUGO);
 MODULE_PARM_DESC(gpio_in_pin, "GPIO input pin number of the AT91SAMG25"
-		 " processor. Valid pin numbers are: 43, 44, 45, 46"
+		 " processor. Valid pin numbers are: 21 ,22 ,23 ,43 ,44 ,45 ,46 ,66 ,67 ,68 ,95"
 		 " default 43");
 
 module_param(sense, bool, S_IRUGO);
