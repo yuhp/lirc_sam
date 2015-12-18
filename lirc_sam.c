@@ -99,7 +99,7 @@ static long send_pulse(unsigned long length);
 static void send_space(long length);
 static void lirc_sam_exit(void);
 
-int valid_gpio_pins[] = { 43 ,44 ,45 ,46 }; 
+int valid_gpio_pins[] = { 22 ,23 ,43 ,44 ,45 ,46 }; 
 
 
 static struct platform_device *lirc_sam_dev;
@@ -330,7 +330,7 @@ static irqreturn_t irq_handler(int i, void *blah, struct pt_regs *regs)
 
 static int is_right_chip(struct gpio_chip *chip, void *data)
 {
-	dprintk("is_right_chip %s %s %d\n", chip->label, data, strcmp(data, chip->label));
+	dprintk("is_right_chip %s %s %d\n", chip->label, (char*)data, strcmp(data, chip->label));
 
 	if (strcmp(data, chip->label) == 0)
 		return 1;
@@ -470,7 +470,7 @@ static void set_use_dec(void *data)
 	spin_lock_irqsave(&lock, flags);
 
 	/* GPIO Pin Falling/Rising Edge Detect Disable */
-	irqchip->irq_set_type(irqdata, 0);
+	//irqchip->irq_set_type(irqdata, IRQ_TYPE_NONE ); //The IRQ_TYPE_NONE just do nothing but a warning in AT91
 	irqchip->irq_mask(irqdata);
 
 	spin_unlock_irqrestore(&lock, flags);
