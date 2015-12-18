@@ -45,4 +45,3 @@ The default gpio input pin 43(PB11) is used when no input pin is specified as a 
 **Example:**
 modprobe lirc_sam gpio_in_pin=22 gpio_out_pin=23  
 The driver will use GPIO pin 22(PA22) as input, GPIO pin 23(PA23) as output.
-
