@@ -21,6 +21,9 @@ GPIO 44 is default IR output pin.
 >cp Kconfig $SOURCE_PATH/driver/staging/media/lirc/  
 
 **Add the following to .config or enable in menuconfig:**
+>CONFIG_MEDIA_RC_SUPPORT=y
+>CONFIG_MEDIA_SUPPORT=y
+>CONFIG_RC_DECODERS=y
 >CONFIG_RC_CORE=m  
 >CONFIG_LIRC=m  
 >CONFIG_RC_MAP=m  
